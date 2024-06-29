@@ -7,6 +7,15 @@ import java.io.*;
  * возможно, выведите строку YES, иначе выведите строку NO.
  */
 public class Triangle {
+
+  public static String getResult(int a, int b, int c) {
+    if (a + b > c && a + c > b && c + b > a) {
+      return "YES";
+    } else {
+      return "NO";
+    }
+  }
+
   public static void main(String[] args) throws IOException {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -15,11 +24,7 @@ public class Triangle {
     int b = Integer.parseInt(reader.readLine());
     int c = Integer.parseInt(reader.readLine());
 
-    if (a + b > c && a + c > b && c + b > a) {
-      writer.write("YES");
-    } else {
-      writer.write("NO");
-    }
+    writer.write(getResult(a, b, c));
 
     reader.close();
     writer.close();
